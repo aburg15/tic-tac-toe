@@ -11,15 +11,14 @@ body {
 }
 
 main {
-  border: 2px solid black;
+  height: 100vh;
   width: 100%;
   background-color: #ffffff;
 }
 
 .aside-left,
 .aside-right {
-  border: 2px solid blue;
-  height: 100vh;
+  height: 100%;
   Width: 50%;
   background-image: linear-gradient(#bdc3c7, #2c3e50);
 }
@@ -35,10 +34,11 @@ main {
 
 .box {
   border: 2px solid #2c3e50;
-  font-family: Helvetica;
-  font-weight: bold;
-  font-size: 4em;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.game-board-header {
+  border: 2px solid #2c3e50;
 }
