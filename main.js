@@ -1,10 +1,10 @@
 // Global Variables
-
+var game;
 
 // Query Selectors
 var boxes = document.querySelector('.game-board-container');
 var gameBoardBoxes = document.querySelector('#boxes')
-
+var currentTurnDisplay = document.querySelector('#currentTurnDisplay')
 
 
 // Event Listeners
@@ -16,7 +16,17 @@ boxes.addEventListener('click', playerSelectsBox);
 // Functions
 function onPageLoad() {
   showPlayerTurn();
-  displayWinCount();
+  // displayWinTotal();
+}
+
+function showPlayerTurn() {
+  game = new Game();
+  if (game.playerTurn === game.player1) {
+    console.log('hi')
+    currentTurnDisplay.innerHTML += `<img src="assets/mario.jpeg" class"mario-image">`
+  } else if (game.playerTurn === game.player2) {
+    currentTurnDisplay.innerHTML += `<img src="assets/peach.png">`
+  }
 }
 
 

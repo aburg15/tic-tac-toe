@@ -6,11 +6,12 @@
     <title>tic-tac-toe</title>
   </head>
   <body>
-    <aside class="aside-left">
-      0 WINS
+    <aside class="aside-left" id="asideLeft">
+      <p>0 WINS</p>
     </aside>
     <main>
       <header class="game-board-header">
+        <div class ="current-turn-display" id="currentTurnDisplay"></div>
         YOU WON!
       </header>
         <section class="game-board-container">
@@ -25,8 +26,8 @@
           <div class="box" id="boxes"></div>
         </section>
     </main>
-    <aside class="aside-right">
-      0 WINS
+    <aside class="aside-right" id="asideRight">
+      <p>0 WINS</p>
     </aside>
   </body>
   <script type = "text/javascript" src="main.js"></script>
