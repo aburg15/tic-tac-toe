@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+body {
+  font-family: 'VT323', serif;
+  font-size: 30px;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+  margin: 0;
+}
+
+main {
+  height: 100vh;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.aside-left,
+.aside-right {
+  padding-top: 5%;
+  height: 100%;
+  Width: 50%;
+  background-image: linear-gradient(#bdc3c7, #2c3e50);
+  font-size: 50px;
+}
+
+.game-board-container {
+  width: 100%;
+	height: 100%;
+  background-color: #ffffff;
+  display: grid;
+	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
+.box {
+  border: 2px solid #2c3e50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 80px;
+  cursor: pointer;
+}
+
+.game-board-header {
+  border: 2px solid #2c3e50;
+  font-size: 80px;
+}
