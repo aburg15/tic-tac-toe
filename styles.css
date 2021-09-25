@@ -22,7 +22,7 @@ main {
   padding-top: 5%;
   height: 100%;
   Width: 50%;
-  background-image: linear-gradient(#bdc3c7, #2c3e50);
+  background-image: linear-gradient(#ffffff, #2c3e50);
   font-size: 50px;
 }
 
@@ -49,6 +49,16 @@ main {
   font-size: 80px;
 }
 
-.mario-image {
+.mario-image,
+.DK-image {
   background-color: #ffffff;
+  height: 10%;
+  width: 10%;
+  padding-top: 5%;
+}
+
+.left-bar-img,
+.right-bar-img {
+  background-color: transparent;
+  height: 100px;
 }

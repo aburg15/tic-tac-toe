@@ -23,9 +23,9 @@ function showPlayerTurn() {
   game = new Game();
   if (game.playerTurn === game.player1) {
     console.log('hi')
-    currentTurnDisplay.innerHTML += `<img src="assets/mario.jpeg" class"mario-image">`
+    currentTurnDisplay.innerHTML += `<img src="assets/mario.png" class="mario-image">`
   } else if (game.playerTurn === game.player2) {
-    currentTurnDisplay.innerHTML += `<img src="assets/peach.png">`
+    currentTurnDisplay.innerHTML += `<img src="assets/DK.png" class="DK-image">`
   }
 }
 
