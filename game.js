@@ -25,11 +25,26 @@ class Game {
 
   addPlayerLogo(chosenBox, playerTurn) {
     for (var i = 0; i < this.board.length; i++) {
-      console.log('a', chosenBox)
       if (this.board[i] === chosenBox) {
         this.board.splice(i, 1, this.playerTurn.logo);
         this.turnNumber += 1;
       }
+    }
+    this.changePlayerTurn();
+    checkForWin(playerTurn);
+  }
+
+  changePlayerTurn() {
+    if (this.playerTurn === this.player1) {
+      this.playerTurn = this.player2
+    } else {
+      this.playerTurn = this.player1
+    }
+  }
+
+  checkForWin(playerTurn) {
+    for (var i = 0; i < this.winningCombo.length; i++) {
+
     }
   }
 

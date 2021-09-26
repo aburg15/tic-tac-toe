@@ -24,6 +24,7 @@ function onPageLoad() {
 }
 
 function showPlayerTurn() {
+  currentTurnDisplay.innerHTML = ``;
   if (game.playerTurn === game.player1) {
     currentTurnDisplay.innerHTML += `<img src="assets/mario.png" class="mario-image"> MARIO'S TURN!`
   } else if (game.playerTurn === game.player2) {
@@ -38,11 +39,12 @@ function showWinTotal() {
 
 
 function playerSelectsBox(event) {
+  var chosenBox = Number(event.target.id)
   if(game.win === false) {
     showPlayerLogoInBox(event.target);
-    game.boxSelected(event.target.id);
+    game.boxSelected(chosenBox);
   }
-
+  showPlayerTurn();
 }
 
 function showPlayerLogoInBox(boxSelected) {
