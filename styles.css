@@ -22,7 +22,8 @@ main {
   padding-top: 5%;
   height: 100%;
   Width: 50%;
-  background-image: linear-gradient(#bdc3c7, #2c3e50);
+  color: white;
+  background-image: linear-gradient(#ffffff, #2c3e50);
   font-size: 50px;
 }
 
@@ -39,7 +40,6 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-
   font-size: 80px;
   cursor: pointer;
 }
@@ -47,4 +47,18 @@ main {
 .game-board-header {
   border: 2px solid #2c3e50;
   font-size: 80px;
+}
+
+.mario-image,
+.DK-image {
+  background-color: #ffffff;
+  height: 15%;
+  width: 10%;
+  padding-top: 5%;
+}
+
+.left-bar-img,
+.right-bar-img {
+  background-color: transparent;
+  height: 100px;
 }
