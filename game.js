@@ -20,6 +20,7 @@ class Game {
   boxSelected(chosenBox) {
     if (this.player1.logo && this.player2.logo !== this.board[chosenBox]) {
       this.addPlayerLogo(chosenBox, this.playerTurn);
+      this.changePlayerTurn();
     }
   }
 
@@ -28,10 +29,10 @@ class Game {
       if (this.board[i] === chosenBox) {
         this.board.splice(i, 1, this.playerTurn.logo);
         this.turnNumber += 1;
+        playerTurn.boxesSelected.push(chosenBox)
       }
     }
-    this.changePlayerTurn();
-    checkForWin(playerTurn);
+    this.checkForWin(playerTurn);
   }
 
   changePlayerTurn() {
@@ -44,8 +45,17 @@ class Game {
 
   checkForWin(playerTurn) {
     for (var i = 0; i < this.winningCombo.length; i++) {
-
+      if ((playerTurn.boxesSelected.includes(this.winningCombo[i][0])) &&
+      (playerTurn.boxesSelected.includes(this.winningCombo[i][1])) &&
+      (playerTurn.boxesSelected.includes(this.winningCombo[i][2]))) {
+        this.win = true;
+        this.playerTurn.wins += 1;
+        this.clearGameBoard();
+      }
     }
   }
 
+  clearGameBoard() {
+      console.log('hi')
+  }
 }
