@@ -3,7 +3,6 @@ var game;
 
 // Query Selectors
 var boxes = document.querySelector('.game-board-container');
-var gameBoardBoxes = document.querySelector('#boxes');
 var currentTurnDisplay = document.querySelector('#currentTurnDisplay');
 var playerOneWinTotal = document.querySelector('#playerOneWinsDisplay');
 var playerTwoWinTotal = document.querySelector('#playerTwoWinsDisplay');
@@ -16,8 +15,8 @@ boxes.addEventListener('click', playerSelectsBox);
 
 // Functions
 function onPageLoad() {
-  var player1 = new Player('player1', 'X');
-  var player2 = new Player('player2', 'O');
+  var player1 = new Player('player1', '🍄');
+  var player2 = new Player('player2', '🍌');
   game = new Game(player1, player2);
   showPlayerTurn();
   showWinTotal();
@@ -40,11 +39,12 @@ function showWinTotal() {
 
 function playerSelectsBox(event) {
   var chosenBox = Number(event.target.id)
-  if(game.win === false) {
+  if(!game.win) {
     showPlayerLogoInBox(event.target);
     game.boxSelected(chosenBox);
   }
   showPlayerTurn();
+  showWinTotal();
 }
 
 function showPlayerLogoInBox(boxSelected) {
