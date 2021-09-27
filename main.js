@@ -7,6 +7,7 @@ var currentTurnDisplay = document.querySelector('#currentTurnDisplay');
 var playerOneWinTotal = document.querySelector('#playerOneWinsDisplay');
 var playerTwoWinTotal = document.querySelector('#playerTwoWinsDisplay');
 
+
 // Event Listeners
 window.addEventListener('load', onPageLoad)
 boxes.addEventListener('click', playerSelectsBox);
@@ -24,22 +25,28 @@ function onPageLoad() {
 
 function showPlayerTurn() {
   currentTurnDisplay.innerHTML = ``;
-  if (game.playerTurn === game.player1) {
-    currentTurnDisplay.innerHTML += `<img src="assets/mario.png" class="mario-image"> MARIO'S TURN!`
-  } else if (game.playerTurn === game.player2) {
-    currentTurnDisplay.innerHTML += `<img src="assets/DK.png" class="DK-image"> DONKEY KONG'S TURN!`
+  if (!game.win) {
+    if (game.playerTurn === game.player1) {
+      currentTurnDisplay.innerHTML += `PLAYER TURN:<img src="assets/mario.png" class="mario-image">`
+    } else if (game.playerTurn === game.player2) {
+      currentTurnDisplay.innerHTML += `PLAYER TURN:<img src="assets/DK.png" class="DK-image">`
+    }
+  } else if (game.playerTurn.id === game.player1.id) {
+    currentTurnDisplay.innerHTML += `<img src="assets/DK.png" class="DK-image"> WINS!`
+  } else {
+    currentTurnDisplay.innerHTML += `<img src="assets/mario.png" class="mario-image"> WINS!`
   }
 }
 
 function showWinTotal() {
-  playerOneWinTotal.innerHTML = game.player1.wins;
-  playerTwoWinTotal.innerHTML = game.player2.wins;
+  playerOneWinTotal.innerHTML = `WINS: ${game.player1.wins}`;
+  playerTwoWinTotal.innerHTML = `WINS: ${game.player2.wins}`;
 }
 
 
-function playerSelectsBox(event) {
+function playerSelectsBox() {
   var chosenBox = Number(event.target.id)
-  if(!game.win) {
+  if (!game.win) {
     showPlayerLogoInBox(event.target);
     game.boxSelected(chosenBox);
   }
@@ -48,7 +55,11 @@ function playerSelectsBox(event) {
 }
 
 function showPlayerLogoInBox(boxSelected) {
-  if(boxSelected.innerText === '') {
+  if (boxSelected.innerText === '') {
     boxSelected.innerText = game.playerTurn.logo
   }
+}
+
+function saveToLocalStorage() {
+
 }

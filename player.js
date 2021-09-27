@@ -4,6 +4,7 @@ class Player {
     this.logo = logo;
     this.boxesSelected = [];
     this.wins = 0;
+    this.winHistory = [];
   }
 
   saveWinsToStorage() {
