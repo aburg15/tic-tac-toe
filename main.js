@@ -6,7 +6,7 @@ var boxes = document.querySelector('.game-board-container');
 var currentTurnDisplay = document.querySelector('#currentTurnDisplay');
 var playerOneWinTotal = document.querySelector('#playerOneWinsDisplay');
 var playerTwoWinTotal = document.querySelector('#playerTwoWinsDisplay');
-
+var gameBoard = document.querySelectorAll('.box');
 
 // Event Listeners
 window.addEventListener('load', onPageLoad)
@@ -39,8 +39,8 @@ function showPlayerTurn() {
 }
 
 function showWinTotal() {
-  playerOneWinTotal.innerHTML = `WINS: ${game.player1.wins}`;
-  playerTwoWinTotal.innerHTML = `WINS: ${game.player2.wins}`;
+  playerOneWinTotal.innerHTML = `WINS: ${game.player1.retrieveWinsFromStorage()}`;
+  playerTwoWinTotal.innerHTML = `WINS: ${game.player2.retrieveWinsFromStorage()}`;
 }
 
 
@@ -58,8 +58,4 @@ function showPlayerLogoInBox(boxSelected) {
   if (boxSelected.innerText === '') {
     boxSelected.innerText = game.playerTurn.logo
   }
-}
-
-function saveToLocalStorage() {
-
 }
