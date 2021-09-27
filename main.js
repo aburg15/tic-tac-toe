@@ -33,8 +33,10 @@ function showPlayerTurn() {
     }
   } else if (game.playerTurn.id === game.player1.id) {
     currentTurnDisplay.innerHTML += `<img src="assets/DK.png" class="DK-image"> WINS!`
-  } else {
+    setTimeout(resetGame, 2000);
+  } else if (game.playerTurn.id === game.player2.id) {
     currentTurnDisplay.innerHTML += `<img src="assets/mario.png" class="mario-image"> WINS!`
+    setTimeout(resetGame, 2000);
   }
 }
 
@@ -42,7 +44,6 @@ function showWinTotal() {
   playerOneWinTotal.innerHTML = `WINS: ${game.player1.retrieveWinsFromStorage()}`;
   playerTwoWinTotal.innerHTML = `WINS: ${game.player2.retrieveWinsFromStorage()}`;
 }
-
 
 function playerSelectsBox() {
   var chosenBox = Number(event.target.id)
@@ -58,4 +59,16 @@ function showPlayerLogoInBox(boxSelected) {
   if (boxSelected.innerText === '') {
     boxSelected.innerText = game.playerTurn.logo
   }
+}
+
+function resetGame() {
+  game.win = false;
+  for (var i = 0; i < 8; i++) {
+    gameBoard[i].innerText = '';
+  }
+  game.board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+  game.player1.boxesSelected = [];
+  game.player2.boxesSelected = [];
+  game.playerTurn = game.player1;
+  showPlayerTurn();
 }

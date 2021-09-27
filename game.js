@@ -5,7 +5,6 @@ class Game {
     this.playerTurn = this.player1;
     this.board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
     this.win = false;
-    this.turnNumber = 0;
     this.winningCombo = [
       [0, 1, 2],
       [3, 4, 5],
@@ -53,17 +52,7 @@ class Game {
         this.playerTurn.wins += 1;
         this.playerTurn.saveWinsToStorage();
         this.playerTurn.retrieveWinsFromStorage();
-        this.resetGame();
       }
     }
-  }
-
-  resetGame() {
-
-    // setTimeout(function() {
-    //   for (var i = 0; i < 8; i++) {
-    //     gameBoard[i].innerText = '';
-    //   }
-    // }, 2000);
   }
 }
