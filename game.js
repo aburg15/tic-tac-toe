@@ -51,15 +51,19 @@ class Game {
         (playerTurn.boxesSelected.includes(this.winningCombo[i][2]))) {
         this.win = true;
         this.playerTurn.wins += 1;
-        this.clearGameBoard();
+        this.playerTurn.saveWinsToStorage();
+        this.playerTurn.retrieveWinsFromStorage();
+        this.resetGame();
       }
     }
   }
 
-  clearGameBoard() {
-    showPlayerTurn();
-    setTimeout(function() {
-      window.location.reload(true)
-    }, 3000);
+  resetGame() {
+
+    // setTimeout(function() {
+    //   for (var i = 0; i < 8; i++) {
+    //     gameBoard[i].innerText = '';
+    //   }
+    // }, 2000);
   }
 }

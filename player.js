@@ -4,14 +4,16 @@ class Player {
     this.logo = logo;
     this.boxesSelected = [];
     this.wins = 0;
-    this.winHistory = [];
   }
 
   saveWinsToStorage() {
-
+    var stringifiedWins = JSON.stringify(this.wins);
+    localStorage.setItem(`${this.id}`, stringifiedWins);
   }
 
   retrieveWinsFromStorage() {
-
+    var retrievedWins = localStorage.getItem(`${this.id}`);
+    var parsedWins = JSON.parse(retrievedWins) || 0;
+    return parsedWins;
   }
 }
