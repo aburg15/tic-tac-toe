@@ -6,15 +6,16 @@ class Game {
     this.board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
     this.win = false;
     this.turnNumber = 0;
-    this.winningCombo =
-    [[0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [0, 4, 8],
-    [1, 4, 7],
-    [2, 4, 6],
-    [2, 5, 8]];
+    this.winningCombo = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [0, 4, 8],
+      [1, 4, 7],
+      [2, 4, 6],
+      [2, 5, 8]
+    ];
   }
 
   boxSelected(chosenBox) {
@@ -46,8 +47,8 @@ class Game {
   checkForWin(playerTurn) {
     for (var i = 0; i < this.winningCombo.length; i++) {
       if ((playerTurn.boxesSelected.includes(this.winningCombo[i][0])) &&
-      (playerTurn.boxesSelected.includes(this.winningCombo[i][1])) &&
-      (playerTurn.boxesSelected.includes(this.winningCombo[i][2]))) {
+        (playerTurn.boxesSelected.includes(this.winningCombo[i][1])) &&
+        (playerTurn.boxesSelected.includes(this.winningCombo[i][2]))) {
         this.win = true;
         this.playerTurn.wins += 1;
         this.clearGameBoard();
@@ -56,6 +57,9 @@ class Game {
   }
 
   clearGameBoard() {
-      console.log('hi')
+    showPlayerTurn();
+    setTimeout(function() {
+      window.location.reload(true)
+    }, 3000);
   }
 }
