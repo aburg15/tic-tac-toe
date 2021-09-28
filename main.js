@@ -16,8 +16,6 @@ boxes.addEventListener('click', playerSelectsBox);
 
 // Functions
 function onPageLoad() {
-  // var player1 = new Player('player1', '🍄');
-  // var player2 = new Player('player2', '🍌');
   game = new Game();
   showPlayerTurn();
   showWinTotal();
@@ -43,31 +41,6 @@ function determineGameOutcome() {
     setTimeout(resetGame, 2000);
   }
 }
-
-// function showPlayerTurn() {
-//   currentTurnDisplay.innerHTML = ``;
-//   if (game.playerTurn === game.player1 && !game.win) {
-//     currentTurnDisplay.innerHTML += `PLAYER TURN:<img src="assets/mario.png" class="mario-image">`
-//   } else if (game.playerTurn === game.player2 && !game.win) {
-//     currentTurnDisplay.innerHTML += `PLAYER TURN:<img src="assets/DK.png" class="DK-image">`
-//   } else if (game.win === true && game.playerTurn.id === game.player1.id) {
-//     currentTurnDisplay.innerHTML += `<img src="assets/DK.png" class="DK-image"> WINS!`
-//     setTimeout(resetGame, 2000);
-//   } else if (game.win === true && game.playerTurn.id === game.player2.id) {
-//     currentTurnDisplay.innerHTML += `<img src="assets/mario.png" class="mario-image"> WINS!`
-//     setTimeout(resetGame, 2000);
-//   }
-// }
-
-// function checkForTie() {
-//   if (game.turnCount === 9) {
-//     currentTurnDisplay.innerHTML = ``;
-//     currentTurnDisplay.innerHTML += `WE HAVE A TIE!`
-//     game.tie === true;
-//     console.log('hi')
-//     resetGame();
-//   }
-// }
 
 function showWinTotal() {
   playerOneWinTotal.innerHTML = `WINS: ${game.player1.retrieveWinsFromStorage()}`;
@@ -96,11 +69,6 @@ function resetGame() {
       gameBoard[i].innerText = '';
     }
     game.newGame();
-    // game.board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-    // game.player1.boxesSelected = [];
-    // game.player2.boxesSelected = [];
-    // game.playerTurn = game.player1;
-    // game.turnCount = 0;
     showPlayerTurn();
 
 }

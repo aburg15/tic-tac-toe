@@ -1,7 +1,7 @@
 class Game {
   constructor() {
-    this.player1 = new Player('player1', '🍄');
-    this.player2 = new Player('player2', '🍌');
+    this.player1 = new Player('MARIO', '🍄');
+    this.player2 = new Player('DONKEY KONG', '🍌');
     this.playerTurn = this.player1;
     this.board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
     this.tie = false;
@@ -20,7 +20,8 @@ class Game {
   }
 
   boxSelected(chosenBox) {
-    if (this.player1.logo && this.player2.logo !== this.board[chosenBox]) {
+    if (this.player1.logo !== this.board[chosenBox] &&
+      this.player2.logo !== this.board[chosenBox]) {
       this.addPlayerLogo(chosenBox, this.playerTurn);
       if (!this.win) {
         this.changePlayerTurn();
