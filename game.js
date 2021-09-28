@@ -1,10 +1,12 @@
 class Game {
-  constructor(player1, player2) {
-    this.player1 = player1;
-    this.player2 = player2;
+  constructor() {
+    this.player1 = new Player('player1', '🍄');
+    this.player2 = new Player('player2', '🍌');
     this.playerTurn = this.player1;
     this.board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    this.tie = false;
     this.win = false;
+    this.turnCount = 0;
     this.winningCombo = [
       [0, 1, 2],
       [3, 4, 5],
@@ -20,7 +22,9 @@ class Game {
   boxSelected(chosenBox) {
     if (this.player1.logo && this.player2.logo !== this.board[chosenBox]) {
       this.addPlayerLogo(chosenBox, this.playerTurn);
-      this.changePlayerTurn();
+      if (!this.win) {
+        this.changePlayerTurn();
+      }
     }
   }
 
@@ -28,7 +32,7 @@ class Game {
     for (var i = 0; i < this.board.length; i++) {
       if (this.board[i] === chosenBox) {
         this.board.splice(i, 1, this.playerTurn.logo);
-        this.turnNumber += 1;
+        this.turnCount += 1;
         playerTurn.boxesSelected.push(chosenBox)
       }
     }
@@ -54,5 +58,25 @@ class Game {
         this.playerTurn.retrieveWinsFromStorage();
       }
     }
+    this.checkForTie();
   }
+
+  checkForTie() {
+    if (this.turnCount === 9) {
+      console.log('hi')
+      this.tie = true;
+    }
+  }
+
+  newGame() {
+    this.playerTurn = this.player1;
+    this.board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    this.tie = false;
+    this.win = false;
+    this.turnCount = 0;
+    game.player1.boxesSelected = [];
+    game.player2.boxesSelected = [];
+  }
+
+
 }
