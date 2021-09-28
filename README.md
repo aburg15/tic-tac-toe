@@ -13,7 +13,7 @@ Tic-Tac-Toe is an application that allows users to play the class Tic-Tac-Toe ga
 
 ## Preview:
 
-![Tic-tac-toe video](./assets/gif.gif)
+![Tic-tac-toe video](./assets/GIF.gif)
 
 ## Primary Technologies Used:
 

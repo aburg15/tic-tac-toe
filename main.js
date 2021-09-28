@@ -1,24 +1,21 @@
-// Global Variables
-var game;
-
-// Query Selectors
-var boxes = document.querySelector('.game-board-container');
+var boxes = document.querySelector('#game-board-container');
 var currentTurnDisplay = document.querySelector('#currentTurnDisplay');
 var playerOneWinTotal = document.querySelector('#playerOneWinsDisplay');
 var playerTwoWinTotal = document.querySelector('#playerTwoWinsDisplay');
 var gameBoard = document.querySelectorAll('.box');
 
-// Event Listeners
-window.addEventListener('load', onPageLoad)
+window.addEventListener('load', function() {
+  onPageLoad();
+  showWinTotal();
+  showPlayerTurn();
+})
+
 boxes.addEventListener('click', playerSelectsBox);
 
-
-
-// Functions
 function onPageLoad() {
-  game = new Game();
-  showPlayerTurn();
-  showWinTotal();
+  player1 = new Player('MARIO', '🍄')
+  player2 = new Player('DONKEY KONG', '🍌')
+  game = new Game(player1, player2);
 }
 
 function showPlayerTurn() {
@@ -65,10 +62,10 @@ function showPlayerLogoInBox(boxSelected) {
 }
 
 function resetGame() {
-    for (var i = 0; i < 9; i++) {
-      gameBoard[i].innerText = '';
-    }
-    game.newGame();
-    showPlayerTurn();
+  for (var i = 0; i < 9; i++) {
+    gameBoard[i].innerText = '';
+  }
+  game.newGame();
+  showPlayerTurn();
 
 }
