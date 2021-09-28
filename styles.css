@@ -14,8 +14,11 @@ body {
 main {
   height: 100%;
   width: 100%;
+  display: flex;
   background-color: #ffffff;
   padding: 0px 50px 50px 50px;
+  align-items: center;
+  flex-direction: column;
 }
 
 .aside-left,
@@ -29,13 +32,13 @@ main {
 }
 
 .game-board-container {
-  width: 100%;
-	height: 89%;
+  width: 500px;
+	height: 500px;
   background-color: #ffffff;
   display: grid;
   justify-content: center;
 	grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-
+  margin-top: 50px;
 }
 
 .box {
@@ -47,8 +50,13 @@ main {
   cursor: pointer;
 }
 
+.box:hover {
+  background-color: #efefef;
+}
+
 .game-board-header {
   font-size: 80px;
+  height: 200px;
 }
 
 .mario-image,

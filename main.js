@@ -1,22 +1,19 @@
-// Global Variables
 var game;
 
-// Query Selectors
-var boxes = document.querySelector('.game-board-container');
+var boxes = document.querySelector('#game-board-container');
 var currentTurnDisplay = document.querySelector('#currentTurnDisplay');
 var playerOneWinTotal = document.querySelector('#playerOneWinsDisplay');
 var playerTwoWinTotal = document.querySelector('#playerTwoWinsDisplay');
 var gameBoard = document.querySelectorAll('.box');
 
-// Event Listeners
 window.addEventListener('load', onPageLoad)
 boxes.addEventListener('click', playerSelectsBox);
 
-
-
-// Functions
 function onPageLoad() {
-  game = new Game();
+  // if (localStorage.length !== 0) {
+    console.log('hi')
+    game = new Game();
+  // }
   showPlayerTurn();
   showWinTotal();
 }

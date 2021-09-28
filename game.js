@@ -64,7 +64,6 @@ class Game {
 
   checkForTie() {
     if (this.turnCount === 9) {
-      console.log('hi')
       this.tie = true;
     }
   }
