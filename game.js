@@ -1,7 +1,7 @@
 class Game {
-  constructor() {
-    this.player1 = new Player('MARIO', '🍄');
-    this.player2 = new Player('DONKEY KONG', '🍌');
+  constructor(player1, player2) {
+    this.player1 = player1;
+    this.player2 = player2;
     this.playerTurn = this.player1;
     this.board = [0, 1, 2, 3, 4, 5, 6, 7, 8];
     this.tie = false;
@@ -77,6 +77,4 @@ class Game {
     game.player1.boxesSelected = [];
     game.player2.boxesSelected = [];
   }
-
-
 }
