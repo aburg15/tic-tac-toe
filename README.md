@@ -1,5 +1,5 @@
 # Tic-Tac-Toe
-Tic-Tac-Toe is an application that allows users to play the class Tic-Tac-Toe game online with two players.
+Tic-Tac-Toe is an application that allows users to play the classic Tic-Tac-Toe game online with two players.
 
 ## How to Play the Game:
 
